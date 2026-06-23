@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const rooms = [
+  {
+    name: 'Standard Room',
+    price: 'From €60 / night',
+    size: '22 m²',
+    guests: 2,
+    img: '/images/103.a.webp',
+    features: ['King or twin beds', 'En-suite bathroom', 'Free Wi-Fi', 'Air conditioning', 'Flat-screen TV', 'Mini fridge'],
+  },
+  {
+    name: 'Superior Room',
+    price: 'From €85 / night',
+    size: '30 m²',
+    guests: 2,
+    img: '/images/222.a-1.webp',
+    features: ['King bed', 'Bathtub & shower', 'Free Wi-Fi', 'Air conditioning', 'Work desk', 'Coffee machine'],
+  },
+  {
+    name: 'Junior Suite',
+    price: 'From €120 / night',
+    size: '45 m²',
+    guests: 3,
+    img: '/images/223.a.webp',
+    features: ['King bed + sofa bed', 'Spa bath', 'Free Wi-Fi', 'Living area', 'Nespresso machine', 'Welcome amenities'],
+  },
+  {
+    name: 'Family Room',
+    price: 'From €95 / night',
+    size: '40 m²',
+    guests: 4,
+    img: '/images/108.a-1.webp',
+    features: ['2 double beds', 'En-suite bathroom', 'Free Wi-Fi', 'Air conditioning', 'Cot available', 'Connecting option'],
+  },
+];
+---
+
+<Base title="Rooms" description="Browse our comfortable rooms and suites at Frontier Hotel." lang="en">
+  <Nav lang="en" />
+
+  <!-- Page header -->
+  <div class="relative pt-32 pb-16 bg-stone-50 text-center">
+    <p class="text-gold-500 text-xs font-semibold uppercase tracking-widest mb-2">Accommodation</p>
+    <h1 class="font-heading text-5xl font-bold text-stone-800">Our Rooms & Suites</h1>
+    <div class="w-16 h-px bg-gold-400 mx-auto mt-6"></div>
+  </div>
+
+  <!-- Rooms grid -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-20 space-y-20">
+    {rooms.map(({ name, price, size, guests, img, features }, i) => (
+      <div class={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-10 items-center`}>
+        <div class="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-md aspect-[4/3] bg-stone-200">
+          <img src={img} alt={name} class="w-full h-full object-cover" loading="lazy" />
+        </div>
+        <div class="w-full lg:w-1/2">
+          <h2 class="font-heading text-3xl font-bold text-stone-800 mb-2">{name}</h2>
+          <p class="text-brand-500 font-semibold mb-4">{price}</p>
+          <div class="flex gap-6 text-sm text-stone-500 mb-6">
+            <span>📐 {size}</span>
+            <span>👤 Up to {guests} guests</span>
+          </div>
+          <ul class="grid grid-cols-2 gap-2 mb-8">
+            {features.map(f => (
+              <li class="flex items-center gap-2 text-sm text-stone-600">
+                <span class="text-gold-400">✓</span> {f}
+              </li>
+            ))}
+          </ul>
+          <a href="/book" class="inline-block bg-brand-500 hover:bg-brand-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors">
+            Book This Room
+          </a>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <Footer lang="en" />
+</Base>

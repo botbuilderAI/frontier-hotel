@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Contact" description="Get in touch with Frontier Hotel." lang="en">
+  <Nav lang="en" />
+
+  <div class="relative pt-32 pb-16 bg-stone-50 text-center">
+    <p class="text-gold-500 text-xs font-semibold uppercase tracking-widest mb-2">Get in Touch</p>
+    <h1 class="font-heading text-5xl font-bold text-stone-800">Contact Us</h1>
+    <div class="w-16 h-px bg-gold-400 mx-auto mt-6"></div>
+  </div>
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16">
+
+    <!-- Contact details -->
+    <div>
+      <h2 class="font-heading text-2xl font-semibold text-stone-800 mb-8">Hotel Information</h2>
+      <ul class="space-y-6 text-stone-600">
+        <li class="flex gap-4">
+          <span class="text-2xl">📍</span>
+          <div>
+            <p class="font-semibold text-stone-800 mb-1">Address</p>
+            <p>Str. Exemplu 1<br/>Cluj-Napoca, Romania</p>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="text-2xl">📞</span>
+          <div>
+            <p class="font-semibold text-stone-800 mb-1">Phone</p>
+            <a href="tel:+40700000000" class="hover:text-brand-500 transition-colors">+40 700 000 000</a>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="text-2xl">✉️</span>
+          <div>
+            <p class="font-semibold text-stone-800 mb-1">Email</p>
+            <a href="mailto:contact@frontierhotel.ro" class="hover:text-brand-500 transition-colors">contact@frontierhotel.ro</a>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <span class="text-2xl">🕐</span>
+          <div>
+            <p class="font-semibold text-stone-800 mb-1">Reception Hours</p>
+            <p>24 hours, 7 days a week</p>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Google Maps embed placeholder -->
+      <div class="mt-10 rounded-xl overflow-hidden h-64 bg-stone-200 flex items-center justify-center text-stone-400 text-sm">
+        <!-- Replace with: <iframe src="https://maps.google.com/?q=..." class="w-full h-full" loading="lazy"></iframe> -->
+        Map placeholder — add Google Maps embed here
+      </div>
+    </div>
+
+    <!-- Contact form -->
+    <div>
+      <h2 class="font-heading text-2xl font-semibold text-stone-800 mb-8">Send a Message</h2>
+      <form class="space-y-5" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-1" for="name">Name</label>
+          <input id="name" name="name" type="text" required
+            class="w-full border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-1" for="email">Email</label>
+          <input id="email" name="email" type="email" required
+            class="w-full border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-1" for="checkin">Check-in / Check-out (optional)</label>
+          <input id="checkin" name="dates" type="text" placeholder="e.g. 15 July – 18 July"
+            class="w-full border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 transition" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-stone-700 mb-1" for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required
+            class="w-full border border-stone-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 transition resize-none"></textarea>
+        </div>
+        <button type="submit"
+          class="w-full bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 rounded-lg transition-colors text-sm">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <Footer lang="en" />
+</Base>

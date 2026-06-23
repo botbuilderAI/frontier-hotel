@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const images = [
+  { src: '/images/Pub-TheFrontierHotelRomania-1-1.webp', alt: 'Hotel exterior' },
+  { src: '/images/103.a.webp',                           alt: 'Standard room' },
+  { src: '/images/Pub-TheFrontierHotelRomania-3.webp',   alt: 'Hotel grounds' },
+  { src: '/images/222.a-1.webp',                         alt: 'Superior room' },
+  { src: '/images/Pub-TheFrontierHotelRomania-5.webp',   alt: 'Hotel entrance' },
+  { src: '/images/223.a.webp',                           alt: 'Junior suite' },
+  { src: '/images/Pub-TheFrontierHotelRomania-7.webp',   alt: 'Hotel garden' },
+  { src: '/images/108.a-1.webp',                         alt: 'Family room' },
+  { src: '/images/Pub-TheFrontierHotelRomania-9.webp',   alt: 'Hotel at night' },
+  { src: '/images/FrontierHotel-Fitness-1.webp',         alt: 'Fitness centre' },
+  { src: '/images/Pub-TheFrontierHotelRomania-11.webp',  alt: 'Hotel terrace' },
+  { src: '/images/Pub-TheFrontierHotelRomania-13.webp',  alt: 'Hotel facilities' },
+];
+---
+
+<Base title="Gallery" description="Photo gallery of Frontier Hotel rooms and facilities." lang="en">
+  <Nav lang="en" />
+
+  <div class="relative pt-32 pb-16 bg-stone-50 text-center">
+    <p class="text-gold-500 text-xs font-semibold uppercase tracking-widest mb-2">Photo Gallery</p>
+    <h1 class="font-heading text-5xl font-bold text-stone-800">Discover Frontier Hotel</h1>
+    <div class="w-16 h-px bg-gold-400 mx-auto mt-6"></div>
+  </div>
+
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+    <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+      {images.map(({ src, alt }) => (
+        <div class="break-inside-avoid rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <img src={src} alt={alt} class="w-full object-cover" loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Footer lang="en" />
+</Base>

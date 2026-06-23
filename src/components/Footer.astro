@@ -1,0 +1,44 @@
+---
+export interface Props { lang: 'en' | 'ro' }
+const { lang } = Astro.props;
+
+const t = {
+  en: { rights: 'All rights reserved.', address: 'Address', phone: 'Phone', email: 'Email' },
+  ro: { rights: 'Toate drepturile rezervate.', address: 'Adresă', phone: 'Telefon', email: 'Email' },
+};
+const tx = t[lang];
+---
+
+<footer class="bg-stone-900 text-stone-300 mt-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
+
+    <div>
+      <img src="/images/The-Frontier-Hotel-No-Stars-Version-WHITE-TEXT.webp" alt="The Frontier Hotel" class="h-16 w-auto object-contain mb-3 opacity-90" loading="lazy" />
+      <p class="text-sm leading-relaxed text-stone-400">
+        Comfort, elegance, and genuine Romanian hospitality.
+      </p>
+    </div>
+
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-3">Contact</p>
+      <ul class="space-y-2 text-sm">
+        <li><span class="text-stone-500">{tx.address}:</span> Str. Exemplu 1, Cluj-Napoca</li>
+        <li><span class="text-stone-500">{tx.phone}:</span> <a href="tel:+40700000000" class="hover:text-white transition-colors">+40 700 000 000</a></li>
+        <li><span class="text-stone-500">{tx.email}:</span> <a href="mailto:contact@frontierhotel.ro" class="hover:text-white transition-colors">contact@frontierhotel.ro</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-3">Social</p>
+      <div class="flex gap-4">
+        <a href="#" class="text-stone-400 hover:text-white transition-colors text-sm">Facebook</a>
+        <a href="#" class="text-stone-400 hover:text-white transition-colors text-sm">Instagram</a>
+        <a href="#" class="text-stone-400 hover:text-white transition-colors text-sm">TripAdvisor</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-stone-800 text-center py-4 text-xs text-stone-600">
+    © {new Date().getFullYear()} Frontier Hotel. {tx.rights}
+  </div>
+</footer>

@@ -1,0 +1,269 @@
+---
+import Base from '../layouts/Base.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Welcome" lang="en">
+
+  <!-- TOP BAR -->
+  <div class="bg-stone-900 text-stone-300 text-xs py-2 px-4 hidden md:block">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-6">
+        <span>📍 Strada Alexandru Cel Bun Nr. 150, Siret, Judet Suceava, Romania. 725500</span>
+        <a href="tel:+40741110933" class="hover:text-gold-400 transition-colors">📞 +40 741 110 933</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="hover:text-white transition-colors">📷</a>
+        <a href="#" class="hover:text-white transition-colors">f</a>
+        <a href="#" class="hover:text-white transition-colors">in</a>
+        <span class="text-stone-600">|</span>
+        <a href="/" class="opacity-80 hover:opacity-100">🇬🇧</a>
+        <a href="/ro" class="opacity-60 hover:opacity-100">🇷🇴</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="bg-[#c9a84c] shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+      <a href="/" class="flex-shrink-0">
+        <img src="/images/logo.png" alt="The Frontier Hotel" class="h-12 w-auto object-contain" loading="eager" />
+      </a>
+      <div class="hidden lg:flex items-center gap-1 text-sm font-semibold text-white">
+        <a href="/" class="px-3 py-1 border-b-2 border-white">HOME</a>
+        <a href="/rooms" class="px-3 py-1 hover:border-b-2 hover:border-white transition-all">ROOMS</a>
+        <a href="/weddings" class="px-3 py-1 hover:border-b-2 hover:border-white transition-all">WEDDINGS</a>
+        <a href="/menus" class="px-3 py-1 hover:border-b-2 hover:border-white transition-all">MENUS</a>
+        <a href="/gallery" class="px-3 py-1 hover:border-b-2 hover:border-white transition-all">PHOTO GALLERY</a>
+        <a href="/corporate" class="px-3 py-1 hover:border-b-2 hover:border-white transition-all">CORPORATE</a>
+        <a href="/events" class="px-3 py-1 bg-green-500 hover:bg-green-600 rounded text-white transition-colors ml-1">EVENTS</a>
+        <a href="/book" class="px-3 py-1 hover:border-b-2 hover:border-white transition-all">BOOKING</a>
+        <a href="/contact" class="px-3 py-1 hover:border-b-2 hover:border-white transition-all">CONTACT</a>
+      </div>
+      <!-- Mobile -->
+      <div class="flex lg:hidden items-center gap-3">
+        <a href="/book" class="bg-white text-[#c9a84c] text-xs font-bold px-4 py-2 rounded">BOOK</a>
+        <button id="menu-btn" class="text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-[#b8972e] px-4 pb-4 pt-2 space-y-1 text-white text-sm font-semibold">
+      <a href="/" class="block py-2">HOME</a>
+      <a href="/rooms" class="block py-2">ROOMS</a>
+      <a href="/gallery" class="block py-2">PHOTO GALLERY</a>
+      <a href="/events" class="block py-2">EVENTS</a>
+      <a href="/book" class="block py-2">BOOKING</a>
+      <a href="/contact" class="block py-2">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- BOOKING BAR -->
+  <div class="bg-stone-800 text-white">
+    <div class="max-w-7xl mx-auto px-4 pt-4 pb-1 flex gap-6 text-xs font-semibold text-stone-300">
+      <button class="flex items-center gap-2 pb-2 border-b-2 border-gold-400 text-white">🛏 STAY DATES</button>
+      <button class="flex items-center gap-2 pb-2 hover:text-white transition-colors">👥 ROOMS & GUESTS</button>
+      <button class="flex items-center gap-2 pb-2 hover:text-white transition-colors">🏷 SPECIAL RATES</button>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 pb-4">
+      <div class="flex flex-col md:flex-row gap-2 items-stretch md:items-end">
+        <div class="flex-1 bg-white rounded p-3">
+          <p class="text-[10px] text-stone-400 font-semibold uppercase mb-1">Check-In</p>
+          <input type="date" name="checkin" class="w-full text-stone-800 text-sm font-medium outline-none" />
+        </div>
+        <div class="flex-1 bg-white rounded p-3">
+          <p class="text-[10px] text-stone-400 font-semibold uppercase mb-1">Check-Out</p>
+          <input type="date" name="checkout" class="w-full text-stone-800 text-sm font-medium outline-none" />
+        </div>
+        <div class="flex-1 bg-white rounded p-3">
+          <p class="text-[10px] text-stone-400 font-semibold uppercase mb-1">Guests & Rooms</p>
+          <select class="w-full text-stone-800 text-sm font-medium outline-none bg-transparent">
+            <option>2 Guests, 1 Room</option>
+            <option>1 Guest, 1 Room</option>
+            <option>3 Guests, 1 Room</option>
+            <option>4 Guests, 2 Rooms</option>
+          </select>
+        </div>
+        <a href="/book" class="bg-[#c9a84c] hover:bg-[#b8972e] text-white font-bold px-8 py-4 rounded text-sm transition-colors whitespace-nowrap flex items-center justify-center">
+          CHECK AVAILABILITY
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-6 mt-3 text-xs text-stone-400">
+        <span>✅ Best Price Guaranteed</span>
+        <span>✅ No Booking Fees</span>
+        <span>✅ Secure Booking</span>
+        <span>✅ Pay at Hotel</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden" style="min-height: 480px;">
+    <img
+      src="/images/frontier-hotel-exterior.webp"
+      alt="The Frontier Hotel"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent"></div>
+
+    <!-- Left content — fully responsive -->
+    <div class="relative z-10 flex flex-col justify-center px-5 sm:px-10 md:px-16 py-14 md:py-20 max-w-xl md:max-w-2xl">
+      <div class="flex gap-1 mb-3">
+        {[1,2,3,4,5].map(() => <span class="text-[#c9a84c] text-base sm:text-xl">★</span>)}
+      </div>
+      <h1 class="font-heading text-3xl sm:text-5xl md:text-6xl font-black text-white leading-tight mb-3 drop-shadow-lg">
+        WHERE EAST<br/>MEETS WEST
+      </h1>
+      <div class="bg-red-600 inline-block px-3 py-1.5 sm:px-4 sm:py-2 mb-3 w-fit">
+        <p class="text-white font-black text-lg sm:text-2xl md:text-3xl tracking-wide">15% OFF YOUR STAY</p>
+      </div>
+      <p class="text-stone-300 text-xs sm:text-sm mb-1">Use code: <span class="font-bold text-white">FRONTIER15</span></p>
+      <p class="text-stone-400 text-xs mb-5">Valid for stays until 30 June 2025. T&Cs apply.</p>
+      <div class="flex gap-3 flex-wrap">
+        <a href="/book" class="bg-[#c9a84c] hover:bg-[#b8972e] text-white font-bold px-6 sm:px-8 py-2.5 sm:py-3 rounded text-xs sm:text-sm transition-colors">
+          BOOK NOW
+        </a>
+        <a href="/rooms" class="border-2 border-white text-white hover:bg-white hover:text-stone-900 font-bold px-6 sm:px-8 py-2.5 sm:py-3 rounded text-xs sm:text-sm transition-colors">
+          VIEW ROOMS
+        </a>
+      </div>
+    </div>
+
+    <!-- WhatsApp CTA — smart: web on desktop, app on mobile -->
+    <a id="wa-btn" href="https://wa.me/40741110933" target="_blank" rel="noopener"
+      class="absolute bottom-6 right-4 sm:bottom-8 sm:right-10 bg-green-500 hover:bg-green-600 text-white rounded-xl px-4 py-3 sm:px-5 sm:py-4 flex items-center gap-3 shadow-2xl transition-colors z-10 max-w-[200px] sm:max-w-xs">
+      <svg class="w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.998l6.305-1.654A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.374l-.36-.214-3.733.979 1-3.64-.234-.374A9.818 9.818 0 1112 21.818z"/>
+      </svg>
+      <div class="min-w-0">
+        <p class="text-[10px] sm:text-xs font-semibold opacity-90 leading-tight">BOOK DIRECTLY ON</p>
+        <p class="text-base sm:text-lg font-black leading-tight">WHATSAPP</p>
+        <p id="wa-subtitle" class="text-[10px] sm:text-xs opacity-80 leading-tight">Get instant replies & best rates!</p>
+      </div>
+      <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- 4 FEATURE ICONS -->
+  <section class="bg-stone-100 border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+      {[
+        { icon: '🛏', title: 'COMFORTABLE ROOMS', desc: 'Relax in our spacious & stylish rooms' },
+        { icon: '🍽', title: 'DELICIOUS DINING',   desc: 'Local & international cuisine' },
+        { icon: '📅', title: 'EVENTS & WEDDINGS',  desc: 'Perfect venue for your special moments' },
+        { icon: '👔', title: 'CORPORATE STAYS',    desc: 'Ideal for business travelers' },
+      ].map(({ icon, title, desc }) => (
+        <div class="flex items-start gap-4">
+          <span class="text-3xl">{icon}</span>
+          <div>
+            <p class="font-bold text-stone-800 text-xs mb-1">{title}</p>
+            <p class="text-stone-500 text-xs leading-relaxed">{desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ROOMS PREVIEW -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
+    <div class="text-center mb-12">
+      <h2 class="font-heading text-4xl font-bold text-stone-800 mb-3">Our Rooms & Suites</h2>
+      <div class="w-16 h-px bg-[#c9a84c] mx-auto mb-4"></div>
+      <p class="text-stone-500 max-w-lg mx-auto">Thoughtfully designed spaces for every type of traveller.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      {[
+        { name: 'Standard Room', price: 'From €60/night', img: '/images/103.a.webp' },
+        { name: 'Superior Room', price: 'From €85/night', img: '/images/222.a-1.webp' },
+        { name: 'Junior Suite',  price: 'From €120/night', img: '/images/223.a.webp' },
+      ].map(({ name, price, img }) => (
+        <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-md transition-shadow group">
+          <div class="aspect-[4/3] overflow-hidden bg-stone-200">
+            <img src={img} alt={name} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div class="p-5">
+            <h3 class="font-heading text-lg font-semibold text-stone-800 mb-1">{name}</h3>
+            <p class="text-[#c9a84c] font-semibold text-sm mb-3">{price}</p>
+            <a href="/rooms" class="text-xs font-bold text-stone-500 hover:text-[#c9a84c] transition-colors">View details →</a>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="text-center mt-10">
+      <a href="/rooms" class="inline-block border-2 border-[#c9a84c] text-[#c9a84c] hover:bg-[#c9a84c] hover:text-white font-bold px-10 py-3 rounded transition-colors text-sm">
+        SEE ALL ROOMS
+      </a>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="bg-stone-50 py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-4xl font-bold text-stone-800 mb-3">Guest Reviews</h2>
+        <div class="w-16 h-px bg-[#c9a84c] mx-auto"></div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { name: 'Maria S.', text: 'Wonderful stay! The staff were incredibly helpful and the room was spotless.', stars: 5 },
+          { name: 'James T.', text: 'Great location and excellent value. Will definitely return on my next trip to Romania.', stars: 5 },
+          { name: 'Elena P.', text: 'Cozy atmosphere and a delicious breakfast. Highly recommended!', stars: 5 },
+        ].map(({ name, text, stars }) => (
+          <div class="bg-white rounded-xl p-7 shadow-sm">
+            <div class="flex gap-1 mb-3">
+              {Array.from({ length: stars }).map(() => <span class="text-[#c9a84c]">★</span>)}
+            </div>
+            <p class="text-stone-600 italic mb-5 leading-relaxed text-sm">"{text}"</p>
+            <p class="font-bold text-stone-800 text-sm">— {name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="bg-stone-900 py-20 text-center">
+    <div class="max-w-2xl mx-auto px-4">
+      <img src="/images/The-Frontier-Hotel-No-Stars-Version-WHITE-TEXT.webp" alt="The Frontier Hotel" class="h-24 w-auto mx-auto mb-6 opacity-90" loading="lazy" />
+      <p class="text-stone-300 mb-8 text-lg">Best rates guaranteed when you book directly with us.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/book" class="bg-[#c9a84c] hover:bg-[#b8972e] text-white font-bold px-10 py-4 rounded transition-colors">
+          BOOK NOW
+        </a>
+        <a href="https://wa.me/40741110933" target="_blank" rel="noopener" class="bg-green-500 hover:bg-green-600 text-white font-bold px-10 py-4 rounded transition-colors flex items-center justify-center gap-2">
+          📱 WHATSAPP US
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang="en" />
+
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+
+    // Smart WhatsApp: mobile opens app, desktop opens WhatsApp Web
+    const waBtn = document.getElementById('wa-btn') as HTMLAnchorElement;
+    const waSub = document.getElementById('wa-subtitle');
+    const phone = '40741110933';
+    const message = encodeURIComponent('Hello! I would like to enquire about booking a room at The Frontier Hotel.');
+    const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+    if (isMobile) {
+      waBtn.href = `whatsapp://send?phone=${phone}&text=${message}`;
+      waBtn.removeAttribute('target');
+      if (waSub) waSub.textContent = 'Tap to open WhatsApp app';
+    } else {
+      waBtn.href = `https://web.whatsapp.com/send?phone=${phone}&text=${message}`;
+      if (waSub) waSub.textContent = 'Opens WhatsApp Web — chat now';
+    }
+  </script>
+</Base>

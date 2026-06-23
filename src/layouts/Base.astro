@@ -1,0 +1,32 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  lang?: 'en' | 'ro';
+}
+
+const {
+  title,
+  description = 'Frontier Hotel — Comfort and elegance in the heart of Romania.',
+  lang = 'en',
+} = Astro.props;
+
+const altLang = lang === 'en' ? 'ro' : 'en';
+const altHref = lang === 'en' ? '/ro' : '/';
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <title>{title} | Frontier Hotel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="alternate" hreflang={altLang} href={altHref} />
+</head>
+<body class="font-body text-stone-800 bg-white antialiased">
+  <slot />
+</body>
+</html>

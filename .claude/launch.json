@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "frontier-hotel",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["astro", "dev"],
+      "port": 4321
+    }
+  ]
+}
