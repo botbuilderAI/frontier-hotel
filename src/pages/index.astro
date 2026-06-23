@@ -137,14 +137,14 @@ import Footer from '../components/Footer.astro';
     </div>
     </div>
 
-    <!-- WhatsApp CTA — smart: web on desktop, app on mobile -->
-    <a id="wa-btn" href="https://wa.me/40741110933" target="_blank" rel="noopener"
+    <!-- WhatsApp CTA -->
+    <button id="wa-btn"
       class="absolute bottom-6 right-6 sm:bottom-8 sm:right-12 bg-green-500 hover:bg-green-600 text-white rounded-xl px-4 py-3 sm:px-5 sm:py-4 flex items-center gap-3 shadow-2xl transition-colors z-10 max-w-[200px] sm:max-w-xs">
       <svg class="w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
         <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.998l6.305-1.654A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.374l-.36-.214-3.733.979 1-3.64-.234-.374A9.818 9.818 0 1112 21.818z"/>
       </svg>
-      <div class="min-w-0">
+      <div class="min-w-0 text-left">
         <p class="text-[10px] sm:text-xs font-semibold opacity-90 leading-tight">BOOK DIRECTLY ON</p>
         <p class="text-base sm:text-lg font-black leading-tight">WHATSAPP</p>
         <p id="wa-subtitle" class="text-[10px] sm:text-xs opacity-80 leading-tight">Get instant replies & best rates!</p>
@@ -152,7 +152,38 @@ import Footer from '../components/Footer.astro';
       <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
       </svg>
-    </a>
+    </button>
+
+    <!-- Mobile contact popup -->
+    <div id="contact-popup" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center">
+      <div class="absolute inset-0 bg-black/50" id="popup-backdrop"></div>
+      <div class="relative bg-white rounded-t-2xl sm:rounded-2xl w-full sm:max-w-sm p-6 shadow-2xl">
+        <p class="text-center font-heading text-lg font-bold text-stone-800 mb-1">Contact Reception</p>
+        <p class="text-center text-stone-400 text-xs mb-6">Choose how you'd like to reach us</p>
+        <div class="space-y-3">
+          <a href="tel:+40741110933"
+            class="flex items-center gap-4 w-full bg-stone-800 hover:bg-stone-700 text-white font-bold px-5 py-4 rounded-xl transition-colors">
+            <span class="text-2xl">📞</span>
+            <div class="text-left">
+              <p class="text-sm font-bold">Call Us</p>
+              <p class="text-xs opacity-70">+40 741 110 933</p>
+            </div>
+          </a>
+          <a id="popup-wa-link" href="https://wa.me/40741110933" target="_blank" rel="noopener"
+            class="flex items-center gap-4 w-full bg-green-500 hover:bg-green-600 text-white font-bold px-5 py-4 rounded-xl transition-colors">
+            <svg class="w-7 h-7 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.847L.057 23.998l6.305-1.654A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.374l-.36-.214-3.733.979 1-3.64-.234-.374A9.818 9.818 0 1112 21.818z"/>
+            </svg>
+            <div class="text-left">
+              <p class="text-sm font-bold">WhatsApp Message</p>
+              <p class="text-xs opacity-80">Chat with reception now</p>
+            </div>
+          </a>
+        </div>
+        <button id="popup-close" class="mt-4 w-full text-stone-400 hover:text-stone-600 text-sm py-2 transition-colors">Cancel</button>
+      </div>
+    </div>
   </section>
 
   <!-- 4 FEATURE ICONS -->
@@ -255,19 +286,29 @@ import Footer from '../components/Footer.astro';
     const menu = document.getElementById('mobile-menu');
     btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
 
-    // Smart WhatsApp: mobile opens app, desktop opens WhatsApp Web
-    const waBtn = document.getElementById('wa-btn') as HTMLAnchorElement;
+    const waBtn = document.getElementById('wa-btn');
     const waSub = document.getElementById('wa-subtitle');
+    const popup = document.getElementById('contact-popup');
+    const popupClose = document.getElementById('popup-close');
+    const popupBackdrop = document.getElementById('popup-backdrop');
+    const popupWaLink = document.getElementById('popup-wa-link') as HTMLAnchorElement;
     const phone = '40741110933';
     const message = encodeURIComponent('Hello! I would like to enquire about booking a room at The Frontier Hotel.');
     const isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+
     if (isMobile) {
-      waBtn.href = `whatsapp://send?phone=${phone}&text=${message}`;
-      waBtn.removeAttribute('target');
-      if (waSub) waSub.textContent = 'Tap to open WhatsApp app';
+      // Mobile: show popup with Call or WhatsApp options
+      if (waSub) waSub.textContent = 'Tap to call or message us';
+      if (popupWaLink) popupWaLink.href = `whatsapp://send?phone=${phone}&text=${message}`;
+      waBtn?.addEventListener('click', () => popup?.classList.remove('hidden'));
+      popupClose?.addEventListener('click', () => popup?.classList.add('hidden'));
+      popupBackdrop?.addEventListener('click', () => popup?.classList.add('hidden'));
     } else {
-      waBtn.href = `https://web.whatsapp.com/send?phone=${phone}&text=${message}`;
-      if (waSub) waSub.textContent = 'Opens WhatsApp Web — chat now';
+      // Desktop: open wa.me universal link (works without WhatsApp Web setup)
+      if (waSub) waSub.textContent = 'Chat via WhatsApp — no app needed';
+      waBtn?.addEventListener('click', () => {
+        window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+      });
     }
   </script>
 </Base>
