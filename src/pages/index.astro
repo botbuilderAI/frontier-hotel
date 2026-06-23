@@ -111,7 +111,9 @@ import Footer from '../components/Footer.astro';
     <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent"></div>
 
     <!-- Left content — fully responsive -->
-    <div class="relative z-10 flex flex-col justify-center px-8 sm:px-12 md:px-20 py-14 md:py-20 max-w-xl md:max-w-2xl">
+    <div class="relative z-10 w-full flex flex-col justify-center py-14 md:py-20">
+    <div class="max-w-7xl mx-auto w-full px-8 sm:px-12 md:px-16 lg:px-24">
+    <div class="max-w-xl">
       <div class="flex gap-1 mb-3">
         {[1,2,3,4,5].map(() => <span class="text-[#c9a84c] text-base sm:text-xl">★</span>)}
       </div>
@@ -131,6 +133,8 @@ import Footer from '../components/Footer.astro';
           VIEW ROOMS
         </a>
       </div>
+    </div>
+    </div>
     </div>
 
     <!-- WhatsApp CTA — smart: web on desktop, app on mobile -->
